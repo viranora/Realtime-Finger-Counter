@@ -1,34 +1,46 @@
-## Parmak Sayma (Canlı Kamera)
+# 🖐️ Real-Time Finger Counter
 
-Bu proje, bilgisayarınızın kamerasını açarak elinizi algılar ve parmaklarınızla gösterdiğiniz sayıyı gerçek zamanlı olarak tespit eder. OpenCV, MediaPipe ve NumPy kütüphanelerini kullanır.
+This project utilizes your computer's webcam to detect your hand and count the number of fingers shown in real-time using **OpenCV**, **MediaPipe**, and **NumPy**.
 
-### Başlangıç
-1. Python 3.9+ kurulu olduğundan emin olun.
-2. İsterseniz izole bir ortam oluşturun:
-   ```bash
-   python -m venv .venv
-   source .venv/bin/activate  # Windows için: .venv\\Scripts\\activate
-   ```
-3. Bağımlılıkları yükleyin:
-   ```bash
-   pip install -r requirements.txt
-   ```
+## 🚀 Getting Started
 
-### Çalıştırma
-```bash
+### Prerequisites
+* Python 3.9 or higher installed.
+
+### Installation
+
+1.  (Optional) Create and activate a virtual environment:
+    ```bash
+    python -m venv .venv
+    source .venv/bin/activate  # For Windows: .venv\Scripts\activate
+    ```
+
+2.  Install the required dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+## ▶️ Usage
+
+Run the main script to start the camera:
+``bash
 python src/finger_counter.py
-```
-- `q` tuşuna basarak uygulamadan çıkabilirsiniz.
 
-### Nasıl Çalışır?
-- MediaPipe `Hands` modeli avuç yönünü ve 21 eklem noktasını çıkarır.
-- Gelen çerçeveye göre parmak eklemleri analiz edilir; her parmak için açık/kapalı kararı verilir.
-- Tespit edilen sayı ve FPS bilgisi ekranda gösterilir.
+## 🧠 How It Works
+Detection: The MediaPipe Hands model extracts the palm orientation and identifies 21 distinct hand landmarks.
 
-### İpuçları
-- İyi aydınlatılmış bir ortamda kullanın.
-- Elinizi kameraya paralel ve görünür olacak şekilde tutmaya çalışın.
-- Eğer sahnede birden fazla el varsa, ilk tespit edilen el kullanılır.
+Analysis: The algorithm analyzes the coordinates of finger knuckles relative to the palm to determine if each finger is in an "open" or "closed" state.
 
-### Lisans
-Bu proje MIT lisansı ile sunulmuştur.
+Output: The total count of open fingers and the current FPS (Frames Per Second) are displayed on the screen.
+
+### 💡 Tips for Best Results
+Lighting: Use the application in a well-lit environment for better detection accuracy.
+
+Positioning: Keep your hand parallel to the camera and ensure all fingers are visible within the frame.
+
+Single Hand: The algorithm is optimized for a single hand; if multiple hands are present, it will track the first detected hand.
+
+### 📄 License
+This project is licensed under the MIT License.
+
+### by vira
